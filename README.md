@@ -33,25 +33,7 @@ Write a SQL query that displays:
 - Round the average order value to **2 decimal places**.
 - Sort the results chronologically, from the earliest month to the latest.
 
-### Expected Output
 
-| month | total_orders | total_sales | avg_order_value |
-|---|---:|---:|---:|
-| 2026-01 | 5 | 1250.00 | 250.00 |
-| 2026-02 | 8 | 2100.00 | 262.50 |
-
-## Solution — MySQL
-
-```sql id="z3ps0v"
-SELECT
-    DATE_FORMAT(order_date, '%Y-%m') AS month,
-    COUNT(*) AS total_orders,
-    SUM(amount) AS total_sales,
-    ROUND(AVG(amount), 2) AS avg_order_value
-FROM orders
-GROUP BY DATE_FORMAT(order_date, '%Y-%m')
-ORDER BY month ASC;
-```
 
 ## Interview Explanation
 
